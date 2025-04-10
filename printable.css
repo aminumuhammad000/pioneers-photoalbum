@@ -150,13 +150,13 @@ main .heading .btn:hover{
     padding-right: 5px;
     color: var(--blue-color);
 }
-main .pagination{
+.pagination{
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 15px;
 }
-main .pagination a{
+.pagination a{
     text-decoration: none;
     background-color: var(--head-color);
     color: var(--blue-color);

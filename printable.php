@@ -1,26 +1,7 @@
-<?php
-    // <?php include 'header.php'; ?
- include 'connection.php'; 
-
-?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="printable.css">
-    <title>pioneers | photo album printable </title>
-</head>
-<body>
-    <!-- header start here  -->
     <?php include "header.php" ?>
-    <!-- header end here  -->
-
-
-
     <!-- main menu of the photo album  -->
     <main>
+        
         <div class="heading">
             <h1 id="title">
                 Photo Album
@@ -33,6 +14,8 @@
         <div class="photo-container">
         <?php include "card.php" ?>
         </div>
+
+
 <?php
 // Get total records
 $total_result = $conn->query("SELECT COUNT(*) AS total FROM student_table");
@@ -64,17 +47,8 @@ for ($i = 1; $i <= $total_pages; $i++) {
   </div>  
     </main>
 
-    <footer>
-        <div class="img-container">
-            <img src="images/logo.png" alt="">
-        </div>
-
-        <p>&copy; 2024/2025 | All Rights Reserved.</p>
-            <div class="contact">
-                <div class="facebook"><img src="images/facebook.png" alt="facebook icon"></div>
-                <div class="twitter"><img src="images/twitter.png" alt="twitter icon"></div>
-                <div class="linkedin"><img src="images/instagram.png" alt="instagram icon"></div>
-            </div>
-    </footer>
+    <?php
+    include "footer.php"
+    ?>
 </body>
 </html>

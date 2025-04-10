@@ -1,6 +1,6 @@
 <?php
 
-$limit = 24; // records per page
+$limit = 15; // records per page
 
 // Get current page from URL (default to 1)
 $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;

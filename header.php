@@ -1,4 +1,16 @@
-
+<?php
+ include 'database.php'; 
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="printable.css">
+    <link rel="stylesheet" href="style.css">
+    <title>pioneers | photo album</title>
+</head>
+<body>
 <header>
         <nav>
             <div class="logo">
@@ -7,9 +19,9 @@
 
             <div class="nav">
                 <ul>
-                    <li><a href="#">Photo Album</a></li>
-                    <li><a href="#">printable Album</a></li>
-                    <li><a href="#">Registration</a></li>
+                    <li><a href="index.php">Photo Album</a></li>
+                    <li><a href="printable.php">printable Album</a></li>
+                    <li><a href="register.php">Registration</a></li>
                 </ul>
             </div>
             <div class="menu">menu</div>
