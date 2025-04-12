@@ -57,5 +57,14 @@ for ($i = 1; $i <= $total_pages; $i++) {
 
 
 <?php include "footer.php" ?>
+
+<script defer>
+  document.querySelectorAll(".menu").forEach(menu => {
+    menu.addEventListener('click', (e) => {
+        const menuNav = e.target.nextElementSibling;
+        menuNav.classList.toggle('active');
+    });
+});
+</script>
 </body>
 </html>

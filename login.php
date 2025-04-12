@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($row = mysqli_fetch_assoc($result)) {
         // Check password
-        if (password_verify($password, $row['password'])) {
+        if ($password == $row['password']) {
             $_SESSION['user'] = $row['username'];
             header("Location: index.php");
             exit;
@@ -39,16 +39,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <body>
     <div class="login">
-    <h2>Enter username and password to Login</h2>
+        <img src="images/logo.png" alt="pioneersng logo">
+    <h2>Login Page</h2>
     <?php if ($error): ?>
-        <p style="color:red"><?= $error ?></p>
+        <p id="error" style="color:red"><?= $error ?></p>
     <?php endif; ?>
-    <form method="POST" action="login.php">
+    <form method="POST" action="">
         <label>Username:</label><br>
-        <input type="text" name="username" required><br><br>
-
+        <input type="text" name="username" placeholder="enter username" required><br><br>
+            
         <label>Password:</label><br>
-        <input type="password" name="password" required><br><br>
+        <input type="password" name="password" placeholder="enter password" required><br><br>
 
         <button type="submit">Login</button>
     </form>

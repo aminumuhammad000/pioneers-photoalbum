@@ -1,16 +1,24 @@
-:root{
+:root {
   --head-color: #e8e8ff;
   --red-color: #dc5d6e;
   --blue-color: #0169ac;
 }
-.header-form{
+body{
+  overflow-x: hidden;
+  font-family: Poppins;
+  color: #222;
+  /* padding: 20px; */
+}
+.header-form {
   margin-top: 2em;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   gap: 3em;
+  padding: 20px;
 }
-.header-form #search{
+.header-form #search {
   padding: 10px;
   outline: none;
   border: 1px solid var(--blue-color);
@@ -18,14 +26,14 @@
   border-radius: 5px;
   width: 18em;
 }
-.header-form select{
+.header-form select {
   padding: 10px 15px;
   outline: none;
   border: 1px solid var(--blue-color);
   font-size: 1.2rem;
   border-radius: 5px;
 }
-.header-form .btn{
+.header-form .btn {
   background-color: var(--blue-color);
   color: var(--head-color);
   padding: 10px 15px;
@@ -33,11 +41,11 @@
   border: none;
   border-radius: 10px;
 }
-.header-form .btn:hover{
+.header-form .btn:hover {
   transform: scale(1.05);
   transition: 0.2s all;
 }
-#main-menu{
+#main-menu {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -46,7 +54,14 @@
   margin-top: 5em;
   margin-bottom: 5em;
 }
-#main-menu .container{
+nav .nav-menu{
+  font-size: 1.6rem;
+  color: var(--blue-color);
+  font-weight: 700;
+  cursor: pointer;
+  display: none;
+}
+#main-menu .container {
   position: relative;
   display: flex;
   align-items: center;
@@ -57,27 +72,64 @@
   border-radius: 10px;
   background-color: var(--head-color);
 }
-#main-menu .container .head{
+#main-menu .container .menu{
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 20px;
+  font-size: 1.4rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+#main-menu .container .menu-nav{
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-top: 20px;
+  margin-right: 40px;
+  padding: 2px 20px;
+  display: none;
+}
+#main-menu .container .menu-nav.active{
+  display: block;
+}
+#main-menu .container .menu-nav button{
+  padding: 10px;
+  outline: none;
+  border: none;
+  font-size: 1.2rem;
+  border-radius: 10px;
+  background-color: var(--blue-color);
+  color: var(--head-color);
+}
+#main-menu .container .menu-nav #delete{
+  background-color: var(--red-color);
+}
+#main-menu .container .menu-nav button:hover{
+  cursor: pointer;
+  transform: scale(1.02);
+}
+#main-menu .container .head {
   min-width: 45%;
   max-width: 50%;
   height: 100%;
 }
-#main-menu .container .head img{
+#main-menu .container .head img {
   width: 100%;
   height: 100%;
   border-radius: 10px 0px 0px 10px;
   object-fit: cover;
-} 
+}
 
-#main-menu .container .text{
+#main-menu .container .text {
   padding: 10px;
 }
-#main-menu .container .text table #bold{
+#main-menu .container .text table #bold {
   font-weight: 600;
   font-family: serif;
   color: var(--blue-color);
 }
-#main-menu .container .footer{
+#main-menu .container .footer {
   display: flex;
   position: absolute;
   background-color: var(--blue-color);
@@ -88,22 +140,23 @@
   width: 100%;
   gap: 10px;
 }
-#main-menu .container .footer .name{
- border-right: 1px solid var(--head-color);
- padding-right: 10px;
+#main-menu .container .footer .name {
+  border-right: 1px solid var(--head-color);
+  padding-right: 10px;
 }
-#main-menu .container .footer .name h1{
+#main-menu .container .footer .name h1 {
   font-size: 1.2rem;
   font-family: sans-serif;
 }
 
-.pagination{
+.pagination {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 15px;
+  padding: 10px;
+  gap: 6px;
 }
-.pagination a{
+.pagination a {
   text-decoration: none;
   background-color: var(--head-color);
   color: var(--blue-color);
@@ -113,99 +166,86 @@
   margin-bottom: 5em;
 }
 
-/* register page
-/* .forms {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 30em;
-  height: auto;
-  background-color: var(--secondary-color);
-  border-radius: 5px;
-  margin-inline: auto;
-  margin-top: 60px;
-}
-.forms form {
+.login {
   width: 100%;
-  padding: 10px;
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  flex-direction: column;
-  gap: 10px;
+  height: 100vh;
+  display: grid;
+  place-content: center;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-.forms form h1 {
-  padding: 20px;
+.login img {
+  width: 15em;
+  object-fit: cover;
+  margin: auto;
+}
+.login h2 {
   text-align: center;
+  color: var(--blue-color);
+  font-size: 1.8rem;
+  font-family: sans-serif;
+  /* margin-bottom: -12px; */
+}
+.login form {
+  background-color: var(--head-color);
+  padding: 2em;
+  border-radius: 10px;
+  box-shadow: 2px 2px 2px 2px var(--blue-color);
+}
+.login #error::before {
+  content: "❌";
+}
+.login #error {
+  font-family: sans-serif;
   color: var(--red-color);
-  text-transform: uppercase;
-  margin-top: 20px;
+  font-size: 1.4rem;
 }
-.forms form #logo {
-  width: 300px;
-  margin-bottom: 30px;
+.login form label {
+  font-family: sans-serif;
+  font-size: 1.2rem;
+  color: var(--blue-color);
 }
-.forms form input,
-select {
-  width: 90%;
-  height: 35px;
-  outline: none;
-  border: 1px solid #888;
-  background-color: transparent;
+.login form input {
+  width: 18em;
   padding: 10px;
-  margin: 10px;
-  border-radius: 3px;
+  font-family: sans-serif;
+  font-size: 1.2rem;
+  outline: none;
+  border: 1px solid var(--blue-color);
+  border-radius: 7px;
+  box-shadow: 1px 1px 3px 1px var(--blue-color);
+}
+.login form button {
+  display: grid;
+  place-content: center;
+  width: 15em;
+  outline: none;
+  border: none;
+  background-color: var(--blue-color);
+  color: var(--head-color);
+  font-size: 1.2rem;
+  font-family: sans-serif;
+  padding: 10px;
+  border-radius: 10px;
+  margin-top: 15px;
+  margin-inline: auto;
+}
+.login form button:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+  transition: all 0.1s ease;
 }
 
-.file-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 300px;
-  width: 300px;
-  border: 1px solid #444;
-  border-radius: 5px;
-  cursor: pointer;
+@media (max-width: 660px) {
+  nav .nav{
+    display: none;
+  }
+  nav .nav-menu{
+    cursor: pointer;
+    display: block;
+  }
+  #main-menu .container{
+    transform: scale(0.8);
+  }
 }
-.file-container .show-image {
-  background-image: url(images/image1.jfif);
-  background-position: center;
-  background-size: cover;
-}
-.file-container #image {
-  text-align: center;
-  font-size: 1.6rem;
-  text-transform: uppercase;
-}
-.file-container .image-file {
-  width: 100%;
-  height: 100%;
-  display: none;
-}
-.forms form input[type="reset"] {
-  background-color: transparent;
-  color: var(--red-color);
-  border: 1px solid var(--red-color);
-  border-radius: 5px;
-}
-.forms form input[type="reset"]:hover {
-  color: #eee;
-  background-color: var(--red-color);
-  cursor: pointer;
-  transform: scale(1.03);
-  transition: 0.3s ease;
-}
-.forms form input[type="submit"] {
-  color: #eee;
-  background-color: var(--primary-color);
-  border: 1px solid #eee;
-  border-radius: 5px;
-}
-.forms form input[type="submit"]:hover {
-  background-color: #4444ff;
-  transform: scale(1.03);
-  transition: 0.3s ease;
-  font-weight: bolder;
-  cursor: pointer;
-}
- */

@@ -1,6 +1,9 @@
 <?php
  include 'database.php'; 
 ?>
+<?php include "auth_check.php"; ?>
+<!-- Rest of your protected page here -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,7 +27,7 @@
                     <li><a href="register.php">Registration</a></li>
                 </ul>
             </div>
-            <div class="menu">menu</div>
+            <div class="nav-menu">&#8942;</div>
         </nav>
         <!-- <br><br><br><br><br> -->
         <div class="benner-container">

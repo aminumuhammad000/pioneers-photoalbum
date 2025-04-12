@@ -12,6 +12,7 @@ body{
     overflow-x: hidden;
     font-family: Poppins;
     color: #222;
+    /* margin: 10px; */
 }
 header{
     padding: 10px;
@@ -82,7 +83,7 @@ header .benner-container .banner img{
     font-weight: 800;
 }
 main .heading{
-    padding: 30px;
+    padding: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -115,26 +116,29 @@ main .heading .btn:hover{
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 2em;
+    gap: 1.5em;
     margin-bottom: 4em;
+    /* padding: 20px; */
 }
 .photo-container .card{
     display: flex;
     align-items: center;
     width: 22em;
-    height: 13em;
-    max-width: 25em;
+    height: 14em;
+    min-width: 20em;
     background-color: var(--head-color);
     box-shadow: 1px 1px 5px 2px gray;
+    border-radius: 7px;
 }
 .photo-container .card .img-container{
-    width: 40%;
+    width: 45%;
     height: 100%;
 }
 .photo-container .card .img-container img{
     width: 100%;
     height: inherit;
     object-fit: cover;
+    border-radius: 7px 0px 0px 7px;
 }
 .photo-container .card .details {
     display: flex;
@@ -154,6 +158,7 @@ main .heading .btn:hover{
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
     gap: 15px;
 }
 .pagination a{

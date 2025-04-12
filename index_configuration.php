@@ -47,15 +47,18 @@ if ($result->num_rows > 0) {
 // Close the database connection
 $conn->close();
 
-// <img src="' . htmlspecialchars($data["passport_path"]) . '" alt="">
-
 // Generate HTML dynamically
 function generateHTML($dataArray) {
     $html = '';
 
     foreach ($dataArray as $data) {
         $html .= '
-        <div class="container hidden">
+        <div class="container">
+        <div class="menu">&#8942;</div>
+        <div class="menu-nav">
+        <button type="submit">update</button>
+        <button type="submit" id="delete">delete</button>
+        </div>
             <div class="head">
                 <img src="images/amee.jpg" alt="">
             </div>

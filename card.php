@@ -19,7 +19,7 @@ $result = $conn->query($sql);
     <div class="card">
     
     <div class="img-container">
-        <img src="images/profile.jpg" alt="">
+        <img src="images/profile.jpg" alt="profile images">
     </div>
 
     <!-- details start here  -->
