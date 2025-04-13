@@ -44,6 +44,12 @@ if ($result->num_rows > 0) {
     $dataArray = [];
 }
 
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_reg_number'])) {
+    $deleteReg = $conn->real_escape_string($_POST['delete_reg_number']);
+    $deleteSql = "DELETE FROM student_table WHERE nin = '$deleteReg'";
+    $conn->query($deleteSql);
+}
+
 // Close the database connection
 $conn->close();
 
@@ -55,10 +61,18 @@ function generateHTML($dataArray) {
         $html .= '
         <div class="container">
         <div class="menu">&#8942;</div>
-        <div class="menu-nav">
-        <button type="submit">update</button>
-        <button type="submit" id="delete">delete</button>
-        </div>
+
+            <div class="menu-nav">
+                <form method="get" action="update.php" style="display:inline;">
+                    <input type="hidden" name="reg_number" value="' . htmlspecialchars($data["nin"]) . '">
+                    <button type="submit">Update</button>
+                </form>
+                <form method="post" action="" style="display:inline;" onsubmit="return confirm(\'Are you sure you want to delete this record?\');">
+                    <input type="hidden" name="delete_reg_number" value="' . htmlspecialchars($data["nin"]) . '">
+                    <button type="submit" id="delete">Delete</button>
+                </form>
+            </div>
+
             <div class="head">
                 <img src="images/amee.jpg" alt="">
             </div>

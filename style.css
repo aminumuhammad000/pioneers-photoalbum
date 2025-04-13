@@ -236,7 +236,49 @@ nav .nav-menu{
   transform: scale(1.05);
   transition: all 0.1s ease;
 }
-
+.register-container{
+  display: grid;
+  place-content: center;
+  padding: 10px;
+  margin-top: 2em;
+  margin-bottom: 5em;
+}
+.register-container form{
+  width: 25em;
+  max-width: 26em;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+}
+.register-container form h1{
+  text-align: center;
+  font-family: sans-serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+.register-container form img{
+  width: 8em;
+  object-fit: cover;
+  margin-inline: auto;
+}
+.register-container form input,
+.register-container form select{
+  padding: 10px;
+  font-size: 1.2rem;
+  outline: none;
+  border-radius: 6px;
+  border: 1px solid var(--blue-color);
+}
+.register-container form input[type="submit"]{
+  background-color: var(--blue-color);
+  color: var(--head-color);
+}
+.register-container form input[type="submit"]:hover{
+  cursor: pointer;
+  transform: scale(1.02);
+  transition: all 0.1s;
+}
 @media (max-width: 660px) {
   nav .nav{
     display: none;
